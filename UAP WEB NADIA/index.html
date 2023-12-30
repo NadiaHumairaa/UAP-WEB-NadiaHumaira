@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIST BARANG</title>
+        <style>
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: white;
+                display: grid;
+                justify-content: center;
+            }
+    
+            td, .title-table {
+                color: black;
+                border: 1px solid;
+                padding: 5px;
+                font-weight: bolder;
+            }
+    
+            .title-web {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+    
+            .class-user {
+                padding: 10px;
+                width: fit-content;
+                margin-top: 20px;
+                border: 1px solid;
+                color: black;
+            }
+    
+            #submit {
+                font-size: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-color: black;
+                color: white;
+                border-radius: 20px;
+                padding: 7px 15px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+    
+            #submit:hover {
+                color: white;
+                background-color:gray;
+                border: white 1px solid;
+            }
+    
+            #kode {
+                margin-left: 27px;
+            }
+    
+            #barang {
+                margin-top: 10px;
+                margin-left: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="title-web">UAP PEMPROGRAMAN WEB</h1>
+        <table>
+            <tr>
+                <td class="title-table">Kode</td>
+                <td class="title-table">Barang</td>
+                <td class="title-table">Harga</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>Barang A</td>
+                <td>30.000</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Barang B</td>
+                <td>20.000</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Barang B</td>
+                <td>30.000</td>
+            </tr>
+        </table>
+    
+        <div class="class-user">
+            <h1>Inputan User</h1>
+            <label for="kode">Masukkan Kode: </label>
+            <input type="number" id="kode" />
+            <br />
+            <label for="barang">Banyaknya Barang: </label>
+            <input type="number" id="barang" />
+            <br />
+            <button type="submit" id="submit" onclick="input()">Submit</button>
+        </div>
+    
+        <script>
+            let harga = [10000, 20000, 30000];
+            let kode = ["001", "002", "003"];
+    
+            function input() {
+                let kodeInput = document.getElementById("kode").value;
+                let barangInput = document.getElementById("barang").value;
+    
+                if (kode.includes(kodeInput)) {
+                    let index = kode.indexOf(kodeInput);
+                    let total_barang = harga[index] * barangInput;
+                    alert("total pembayaran adalah: " + total_barang);
+                    let uang = parseFloat(window.prompt("masukkan uang user: "));
+                    let result = uang - total_barang;
+                    alert("total kembalian anda adalah" + result);
+                } else {
+                    alert("Kode barang tidak valid");
+                }
+            }
+        </script>
+    </body>
+</html>
